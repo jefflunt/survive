@@ -13,9 +13,7 @@ h, w = IO.console.winsize
 h = h - 1
 size = w * h
 
-cells = size.times.collect do
-  rand(1000) == 0 ? Cell.new(Grower, U::MAX_ENERGY) : Cell.new(Noop, 0)
-end
+cells = U.init_field(size)
 
 loop do
   sleep(0.1)

@@ -11,6 +11,12 @@ module U
   ]
   MAX_ENERGY = COLORS.length - 1
 
+  def self.init_field(size)
+    size.times.collect do
+      rand(1000) == 0 ? Cell.new(Grower, MAX_ENERGY) : Cell.new(Noop, 0)
+    end
+  end
+
   def self.find(i, dir, w, h)
     case dir
     when :north
