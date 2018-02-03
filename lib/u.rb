@@ -1,4 +1,16 @@
 module U
+  COLORS = [
+    :light_black,
+    :blue,
+    :red,
+    :light_red,
+    :yellow,
+    :light_yellow,
+    :white,
+    :light_white
+  ]
+  MAX_ENERGY = COLORS.length - 1
+
   def self.find(i, dir, w, h)
     case dir
     when :north
@@ -21,7 +33,7 @@ module U
   end
 
   def self.show(c)
-    print c.creature::SYMBOL.send(ENERGY_COLORS[c.energy.to_i.ceil] || ENERGY_COLORS[0])
+    print c.creature::SYMBOL.send(COLORS[c.energy.to_i.ceil] || COLORS[0])
   end
 
   def self.step_filter(step)

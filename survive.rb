@@ -8,20 +8,6 @@ require 'cell'
 require 'grower'
 require 'noop'
 
-ENERGY_COLORS = [
-  :light_black,
-  :blue,
-  :red,
-  :light_red,
-  :yellow,
-  :light_yellow,
-  :white,
-  :light_white
-]
-MAX_ENERGY = ENERGY_COLORS.length - 1
-
-##
-# main
 puts M.hide_cursor
 puts M.clear
 h, w = IO.console.winsize
@@ -29,7 +15,7 @@ h = h - 1
 size = w * h
 
 cells = size.times.collect do
-  rand(1000) == 0 ? Cell.new(Grower, MAX_ENERGY) : Cell.new(Noop, 0)
+  rand(1000) == 0 ? Cell.new(Grower, U::MAX_ENERGY) : Cell.new(Noop, 0)
 end
 
 loop do
@@ -50,7 +36,7 @@ loop do
         c.creature = Noop
         c.energy = 0
       when :rest
-        c.add_energy(1, MAX_ENERGY)
+        c.add_energy(1, U::MAX_ENERGY)
       when :copy
         c.remove_energy(2, 0)
         dir = [:north, :east, :south, :west].sample
