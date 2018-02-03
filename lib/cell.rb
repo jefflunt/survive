@@ -1,10 +1,14 @@
 class Cell
   attr_accessor :creature
   attr_accessor :energy
+  attr_accessor :next_creature
+  attr_accessor :next_energy
 
   def initialize(creature, energy)
     @creature = creature
     @energy = energy
+    @next_creature = Noop
+    @next_energy = 0
   end
 
   def add_energy(x, max)
@@ -16,9 +20,21 @@ class Cell
   end
   
   def transfer_to(cell)
-    cell.creature = @creature
-    cell.energy = @energy
-    @creature = Noop
-    @energy = 0
+    if cell.creature == Noop
+      cell.next_creature = @creature
+      cell.next_energy = @energy
+      @next_creature = Noop
+      @next_energy = 0
+    else
+      @next_creature = @creature
+      @next_energy = @energy
+    end
+  end
+
+  def resolve
+    @creature = @next_creature
+    @energy = @next_energy
+    @next_creatue = Noop
+    @next_energy = 0
   end
 end

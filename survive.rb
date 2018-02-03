@@ -91,4 +91,6 @@ loop do
       end
     end
   end
+
+  cells.each{|c| c.resolve}
 end

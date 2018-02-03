@@ -7,6 +7,6 @@
 module Grower
   def self.tick(sigs=[])
     n, e, s, w = sigs
-    [:south, :nosig, :nosig, :nosig, :nosig]
+    [:west, :nosig, :nosig, :nosig, :nosig]
   end
 end
