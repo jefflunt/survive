@@ -20,14 +20,6 @@ ENERGY_COLORS = [
 ]
 MAX_ENERGY = ENERGY_COLORS.length - 1
 
-def processing(request)
-  return :kill unless request.is_a?(Array)
-  return :kill unless request.length == 5
-  return :kill unless request.all?{|i| i.is_a? Symbol }
-  
-  request[0]
-end
-
 ##
 # main
 puts M.hide_cursor
@@ -51,8 +43,8 @@ loop do
 
   cells.each_with_index do |c, i|
     unless c.creature == Noop
-      request = c.creature.tick(c.energy)
-      action = processing(request)
+      step = c.creature.tick(c.energy)
+      action = U.step_filter(step)
       case action
       when :kill
         c.creature = Noop

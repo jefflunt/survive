@@ -23,4 +23,13 @@ module U
   def self.show(c)
     print c.creature::SYMBOL.send(ENERGY_COLORS[c.energy.to_i.ceil] || ENERGY_COLORS[0])
   end
+
+  def self.step_filter(step)
+    return :kill unless step.is_a?(Array)
+    return :kill unless step.length == 5
+    return :kill unless step.all?{|i| i.is_a? Symbol }
+    
+    step[0]
+  end
+
 end
