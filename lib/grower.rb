@@ -8,7 +8,11 @@ module Grower
   SYMBOL = 'G'
 
   def self.tick(energy, sigs=[])
-    n, e, s, w = sigs
-    [:copy, :nosig, :nosig, :nosig, :nosig]
+#    n, e, s, w = sigs
+#    if energy > 5
+      [:copy, :nosig, :nosig, :nosig, :nosig]
+#    else
+#      [:rest, :nosig, :nosig, :nosig, :nosig]
+#    end
   end
 end

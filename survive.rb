@@ -3,6 +3,7 @@ $LOAD_PATH.unshift './lib'
 require 'colorize'
 require 'io/console'
 require 'm'
+require 'u'
 require 'cell'
 require 'grower'
 require 'noop'
@@ -20,7 +21,9 @@ ENERGY_COLORS = [
 MAX_ENERGY = ENERGY_COLORS.length - 1
 
 def show(c)
-  print c.creature::SYMBOL.send(ENERGY_COLORS[c.energy.to_i] || ENERGY_COLORS[0])
+  #puts c.energy if c.energy > 0
+    print c.creature::SYMBOL.send(ENERGY_COLORS[c.energy.to_i.ceil] || ENERGY_COLORS[0])
+#  print c.energy.to_s[-1]
 end
 
 def processing(request)
@@ -29,27 +32,6 @@ def processing(request)
   return :kill unless request.all?{|i| i.is_a? Symbol }
   
   request[0]
-end
-
-def find(i, dir, w, h)
-  case dir
-  when :north
-    i - w
-  when :east
-    r = i / w
-    c = i % w
-
-    c = c == w - 1 ? 0 : c + 1
-    (r * w) + c
-  when :south
-    (i + w) % (w * h)
-  when :west
-    r = i / w
-    c = i % w
-
-    c = c == 0 ? w - 1 : c - 1
-    (r * w) + c
-  end
 end
 
 ##
@@ -77,24 +59,19 @@ loop do
     unless c.creature == Noop
       request = c.creature.tick(c.energy)
       action = processing(request)
-      #loc = "(#{i % w}, #{i / w})"
-
-      #puts "#{action} @ #{loc}"
       case action
       when :kill
         c.creature = Noop
         c.energy = 0
       when :rest
-        c.add_energy(0.1, MAX_ENERGY)
+        c.add_energy(1, MAX_ENERGY)
       when :copy
-#        if c.energy >= 2
-#          c.remove_energy(0.5, 0)
-          dir = [:north, :east, :south, :west].sample
-          c.copy_to(cells[find(i, dir, w, h)])
-#        end
+        c.remove_energy(2, 0)
+        dir = [:north, :east, :south, :west].sample
+        c.copy_to(cells[U.find(i, dir, w, h)])
       when :north, :east, :south, :west
         c.remove_energy(0.2, 0)
-        c.transfer_to(cells[find(i, action, w, h)])
+        c.transfer_to(cells[U.find(i, action, w, h)])
       else
         # no-op
       end
