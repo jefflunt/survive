@@ -5,7 +5,9 @@
 # - not an array of length 4, with all symbols
 # - time to run is longer than 1 millisecond
 module Grower
-  def self.tick(sigs=[])
+  SYMBOL = 'G'
+
+  def self.tick(energy, sigs=[])
     n, e, s, w = sigs
     [:copy, :nosig, :nosig, :nosig, :nosig]
   end

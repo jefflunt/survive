@@ -8,7 +8,7 @@ require 'grower'
 require 'noop'
 
 ENERGY_COLORS = [
-  :black,
+  :light_black,
   :blue,
   :red,
   :light_red,
@@ -20,7 +20,7 @@ ENERGY_COLORS = [
 MAX_ENERGY = ENERGY_COLORS.length - 1
 
 def show(c)
-  print '█'.send(ENERGY_COLORS[c.energy.to_i] || ENERGY_COLORS[0]) if c
+  print c.creature::SYMBOL.send(ENERGY_COLORS[c.energy.to_i] || ENERGY_COLORS[0])
 end
 
 def processing(request)
@@ -65,7 +65,7 @@ cells = size.times.collect do
 end
 
 loop do
-  sleep(0.2)
+  sleep(0.1)
   puts "#{M.up(h)}\r"
   cells.each_slice(w) do |row|
     row.each do |cell|
@@ -75,8 +75,11 @@ loop do
 
   cells.each_with_index do |c, i|
     unless c.creature == Noop
-      request = c.creature.tick
+      request = c.creature.tick(c.energy)
       action = processing(request)
+      #loc = "(#{i % w}, #{i / w})"
+
+      #puts "#{action} @ #{loc}"
       case action
       when :kill
         c.creature = Noop
@@ -84,11 +87,11 @@ loop do
       when :rest
         c.add_energy(0.1, MAX_ENERGY)
       when :copy
-        if c.energy >= 2
+#        if c.energy >= 2
 #          c.remove_energy(0.5, 0)
           dir = [:north, :east, :south, :west].sample
           c.copy_to(cells[find(i, dir, w, h)])
-        end
+#        end
       when :north, :east, :south, :west
         c.remove_energy(0.2, 0)
         c.transfer_to(cells[find(i, action, w, h)])
