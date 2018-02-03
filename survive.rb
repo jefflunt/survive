@@ -8,8 +8,7 @@ require 'cell'
 require 'grower'
 require 'noop'
 
-puts M.hide_cursor
-puts M.clear
+M.setup_screen
 h, w = IO.console.winsize
 h = h - 1
 size = w * h

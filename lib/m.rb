@@ -1,4 +1,9 @@
 module M
+  def self.setup_screen
+    puts M.hide_cursor
+    puts M.clear
+  end
+
   def self.hide_cursor
     "\033[?25l"
   end
