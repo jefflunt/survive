@@ -19,4 +19,8 @@ module U
       (r * w) + c
     end
   end
+
+  def self.show(c)
+    print c.creature::SYMBOL.send(ENERGY_COLORS[c.energy.to_i.ceil] || ENERGY_COLORS[0])
+  end
 end

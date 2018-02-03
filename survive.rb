@@ -20,12 +20,6 @@ ENERGY_COLORS = [
 ]
 MAX_ENERGY = ENERGY_COLORS.length - 1
 
-def show(c)
-  #puts c.energy if c.energy > 0
-    print c.creature::SYMBOL.send(ENERGY_COLORS[c.energy.to_i.ceil] || ENERGY_COLORS[0])
-#  print c.energy.to_s[-1]
-end
-
 def processing(request)
   return :kill unless request.is_a?(Array)
   return :kill unless request.length == 5
@@ -51,7 +45,7 @@ loop do
   puts "#{M.up(h)}\r"
   cells.each_slice(w) do |row|
     row.each do |cell|
-      show(cell)
+      U.show(cell)
     end
   end
 
