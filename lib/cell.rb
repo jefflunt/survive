@@ -31,6 +31,13 @@ class Cell
     end
   end
 
+  def copy_to(cell)
+    if cell.creature == Noop
+      cell.next_creature = @creature
+      cell.next_energy = 2
+    end
+  end
+
   def resolve
     @creature = @next_creature
     @energy = @next_energy

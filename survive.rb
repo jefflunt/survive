@@ -79,10 +79,16 @@ loop do
       action = processing(request)
       case action
       when :kill
-        c.remove_energy(MAX_ENERGY, 0)
         c.creature = Noop
+        c.energy = 0
       when :rest
         c.add_energy(0.1, MAX_ENERGY)
+      when :copy
+        if c.energy >= 2
+#          c.remove_energy(0.5, 0)
+          dir = [:north, :east, :south, :west].sample
+          c.copy_to(cells[find(i, dir, w, h)])
+        end
       when :north, :east, :south, :west
         c.remove_energy(0.2, 0)
         c.transfer_to(cells[find(i, action, w, h)])
