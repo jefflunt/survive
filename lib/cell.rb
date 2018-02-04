@@ -35,7 +35,15 @@ class Cell
     if cell.creature == Noop
       cell.next_creature = @creature
       cell.next_energy = 2
+      true
+    else
+      false
     end
+  end
+
+  def stay
+    @next_creature = @creature
+    @next_energy = energy
   end
 
   def resolve

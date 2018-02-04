@@ -33,12 +33,21 @@ loop do
       when :kill
         c.creature = Noop
         c.energy = 0
+        c.stay
       when :rest
-        c.add_energy(1, U::MAX_ENERGY)
+        c.add_energy(0.1, U::MAX_ENERGY)
+        c.stay
       when :copy
-        c.remove_energy(2, 0)
-        dir = [:north, :east, :south, :west].sample
-        c.copy_to(cells[U.find(i, dir, w, h)])
+        if c.energy >= 2
+          dir = [:north, :east, :south, :west].sample
+          successful_copy = c.copy_to(cells[U.find(i, dir, w, h)])
+          c.remove_energy(2, 0) if successful_copy
+          c.add_energy(0.1, U::MAX_ENERGY) if !successful_copy
+          c.stay
+        else
+          c.add_energy(0.1, U::MAX_ENERGY)
+          c.stay
+        end
       when :north, :east, :south, :west
         c.remove_energy(0.2, 0)
         c.transfer_to(cells[U.find(i, action, w, h)])
