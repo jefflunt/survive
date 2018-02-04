@@ -6,7 +6,7 @@ require 'io/console'
 require 'm'
 require 'u'
 require 'cell'
-require 'grower'
+require 'blind_copy'
 require 'noop'
 
 M.setup_screen
