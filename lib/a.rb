@@ -4,10 +4,10 @@ module A
   end
 
   def self.stay(c)
-    c.stay
+    c.rest(c)
   end
 
-  def self.rest(cells, c, i, w, h)
+  def self.rest(c)
     c.add_energy(0.1, U::MAX_ENERGY)
     c.stay
   end
