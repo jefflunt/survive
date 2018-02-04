@@ -1,4 +1,5 @@
 $LOAD_PATH.unshift './lib'
+$LOAD_PATH.unshift './lib/cell_lines'
 
 require 'colorize'
 require 'io/console'
