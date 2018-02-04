@@ -1,11 +1,15 @@
 module U
   COLORS = [
     :light_black,
-    :blue,
     :red,
     :light_red,
     :yellow,
     :light_yellow,
+    :green,
+    :light_green,
+    :blue,
+    :light_blue,
+    :cyan,
     :white,
     :light_white
   ]
