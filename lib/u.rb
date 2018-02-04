@@ -14,10 +14,11 @@ module U
     :light_white
   ]
   MAX_ENERGY = COLORS.length - 1
+  CELL_LINES = [BlindCopy, Mover]
 
   def self.init_field(size)
     size.times.collect do
-      rand(1000) == 0 ? Cell.new(BlindCopy, MAX_ENERGY) : Cell.new(Noop, 0)
+      rand(1000) == 0 ? Cell.new(CELL_LINES.sample, MAX_ENERGY) : Cell.new(Noop, 0)
     end
   end
 

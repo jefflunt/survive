@@ -2,5 +2,5 @@
 - Auto-kill a cell that raises an exception
 - Sense + signal
 - Move
-- Reproduce
+- Copy
 - Vamp, Brace, Give, None

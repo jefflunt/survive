@@ -41,6 +41,11 @@ class Cell
     end
   end
 
+  def kill
+    c.next_creature = Noop
+    c.next_energy = 0
+  end
+
   def stay
     @next_creature = @creature
     @next_energy = energy
