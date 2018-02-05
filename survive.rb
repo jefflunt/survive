@@ -7,7 +7,6 @@ $LOAD_PATH.unshift './lib/cell_lines'
 Dir.glob('lib/cell_lines/*.rb') { |f| require_relative f }
 Dir.glob('lib/*.rb') { |f| require_relative f }
 
-
 M.setup_screen
 h, w = IO.console.winsize
 h = h - 1
@@ -29,18 +28,10 @@ loop do
       step = c.creature.tick(c.energy)
       action = U.step_filter(step)
       case action
-      when :rest
-        A::rest(cells, c, i, w, h)
-      when :copy
-        A::copy(cells, c, i, w, h)
       when :north, :east, :south, :west
         A::move(cells, action, c, i, w, h)
-      when :suicide
-        A::kill(c)
-      when :kill
-        A::kill(c)
       else
-        A::rest(c)
+        A::send(action, cells, c, i, w, h)
       end
     end
   end

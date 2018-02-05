@@ -1,9 +1,9 @@
 module A
-  def self.kill(cells, c, i, w, h)
+  def self.kill(_cells, c, _i, _w, _h)
     c.kill
   end
 
-  def self.rest(c)
+  def self.rest(_cells, c, _i, _w, _h)
     c.add_energy(0.1, U::MAX_ENERGY)
     c.stay
   end
@@ -21,8 +21,8 @@ module A
     end
   end
 
-  def self.move(cells, action, c, i, w, h)
+  def self.move(cells, dir, c, i, w, h)
     c.remove_energy(0.2, 0)
-    c.transfer_to(cells[U.find(i, action, w, h)])
+    c.transfer_to(cells[U.find(i, dir, w, h)])
   end
 end
