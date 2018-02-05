@@ -15,40 +15,25 @@ AI that takes the form of a unicellular life form. On every turn your AI:
 
 ### Signals
 
-#### nosig
-
-No signal.
-
-#### brace
-
-Defensive signal, blocking offensive moves by adjacent AIs.
-
-#### give
-
-Used to send energy from this cell to an adjacent cell.
-
-#### vamp
-
-Used to take energy from an adjacent cell and give it to this cell.
+| signal    | description                                                     |
+| --------- | --------------------------------------------------------------- |
+| `nosig`   | No signal                                                       |
+| `brace`   | A defensive signal that blocks offensive moves by adjacent AIs. |
+| `give`    | Sends energy from this cell to an adjacent cell                 |
+| `vamp`    | Takes energy from an adjacent cell and gives it to this cell    |
 
 
 ### Actions
 
-#### north, east, south, or west
+| action    | description                                                     |
+| --------- | --------------------------------------------------------------- |
+| `north`   | Move north                                                      |
+| `east`    | Move east                                                       |
+| `south`   | Move south                                                      |
+| `west`    | Move west                                                       |
+| `suicide` | The cell dies by its own choice                                 |
+| `kill`    | The is killed by the simulation, because improper output        |
 
-Move in the specified direction.
-
-#### suicide
-
-This cell dies.
-
-
-### Special
-
-#### kill
-
-If a cell throws an exception, or returns invalid action and signal output, the
-cell will be killed by the simulation.
 
 ### Signaling costs and gains
 
