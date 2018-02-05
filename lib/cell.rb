@@ -1,8 +1,9 @@
 class Cell
   attr_accessor :creature
   attr_accessor :energy
+
   attr_accessor :signals
-  attr_accessor :next_action
+  attr_accessor :action
   attr_accessor :next_creature
   attr_accessor :next_energy
 
@@ -53,7 +54,7 @@ class Cell
     c.next_energy = 0
   end
 
-  def tock
+  def tock(neighbors)
     @creature = @next_creature
     @energy = @next_energy
     @next_creatue = Noop

@@ -22,7 +22,7 @@ module U
     end
   end
 
-  def self.find(i, dir, w, h)
+  def self.neighbor(i, dir, w, h)
     case dir
     when :north
       i - w
@@ -43,6 +43,15 @@ module U
     end
   end
 
+  def self.neighbors(i, w, h)
+    [
+      neighbor(i, :north, w, h),
+      neighbor(i, :east, w, h),
+      neighbor(i, :south, w, h),
+      neighbor(i, :west, w, h)
+    ]
+  end
+
   def self.show(c)
     print c.creature::SYMBOL.send(COLORS[c.energy.to_i.ceil] || COLORS[0])
   end
@@ -54,5 +63,4 @@ module U
     
     step[0]
   end
-
 end

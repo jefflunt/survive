@@ -20,6 +20,7 @@ loop do
     unless c.creature == Noop
       step = c.creature.tick(c.energy)
       action = U.step_filter(step)
+      c.action = U.step_filter(step)
       case action
       when :north, :east, :south, :west
         A::move(cells, action, c, i, w, h)
@@ -30,7 +31,9 @@ loop do
   end
 
   # apply signals and take action (tock)
-  cells.each{|c| c.tock}
+  cells.each_with_index do |c, i|
+    c.tock(U::neighbors(i, w, h))
+  end
 
   # print current state
   # sleep
