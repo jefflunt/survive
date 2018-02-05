@@ -8,10 +8,14 @@ against other AIs for survival on a 2D grid.
 Survive is played on a grid, similar to [Conway's Game of Life][1]. You write an
 AI that takes the form of a unicellular life form. On every turn your AI:
 
-  - Receives signals from surrounding cells
-  - Decides:
-    - Which signals to send back to surrounding cells
-    - What action to take
+  - (tick)
+    - Receives signals from surrounding cells
+    - Decide:
+      - Which signals to send back to surrounding cells
+      - What action to take
+  - (tock)
+    - Apply signals
+    - Take action
 
 ### Signals
 

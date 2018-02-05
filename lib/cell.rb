@@ -53,7 +53,7 @@ class Cell
     c.next_energy = 0
   end
 
-  def resolve
+  def tock
     @creature = @next_creature
     @energy = @next_energy
     @next_creatue = Noop

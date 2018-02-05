@@ -15,10 +15,7 @@ size = w * h
 cells = U.init_field(size)
 
 loop do
-  # sense + signal, indicate action (tick)
-  # apply signals
-  # apply action
-
+  # sense and signal, choose action (tick)
   cells.each_with_index do |c, i|
     unless c.creature == Noop
       step = c.creature.tick(c.energy)
@@ -32,7 +29,8 @@ loop do
     end
   end
 
-  cells.each{|c| c.resolve}
+  # apply signals and take action (tock)
+  cells.each{|c| c.tock}
 
   # print current state
   # sleep
