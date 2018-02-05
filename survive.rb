@@ -1,13 +1,12 @@
+require 'colorize'
+require 'io/console'
+
 $LOAD_PATH.unshift './lib'
 $LOAD_PATH.unshift './lib/cell_lines'
 
 Dir.glob('lib/cell_lines/*.rb') { |f| require_relative f }
-require 'colorize'
-require 'io/console'
-require 'cell'
-require 'm'
-require 'u'
-require 'a'
+Dir.glob('lib/*.rb') { |f| require_relative f }
+
 
 M.setup_screen
 h, w = IO.console.winsize
