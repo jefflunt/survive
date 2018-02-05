@@ -18,7 +18,7 @@ AI that takes the form of a unicellular life form. On every turn your AI:
 | signal    | description                                                     |
 | --------- | --------------------------------------------------------------- |
 | `nosig`   | No signal                                                       |
-| `brace`   | A defensive signal that blocks offensive moves by adjacent AIs. |
+| `brace`   | A defensive signal that blocks offensive moves by adjacent AIs  |
 | `give`    | Sends energy from this cell to an adjacent cell                 |
 | `vamp`    | Takes energy from an adjacent cell and gives it to this cell    |
 
