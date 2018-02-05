@@ -27,6 +27,7 @@ AI that takes the form of a unicellular life form. On every turn your AI:
 
 | action    | description                                                     |
 | --------- | --------------------------------------------------------------- |
+| `rest`    | Take no action                                                  |
 | `north`   | Move north                                                      |
 | `east`    | Move east                                                       |
 | `south`   | Move south                                                      |

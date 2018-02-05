@@ -32,16 +32,18 @@ loop do
       step = c.creature.tick(c.energy)
       action = U.step_filter(step)
       case action
-      when :kill
-        A::kill(cells, c, i, w, h)
       when :rest
         A::rest(cells, c, i, w, h)
       when :copy
         A::copy(cells, c, i, w, h)
       when :north, :east, :south, :west
         A::move(cells, action, c, i, w, h)
+      when :suicide
+        A::kill(c)
+      when :kill
+        A::kill(c)
       else
-        A::stay(c)
+        A::rest(c)
       end
     end
   end

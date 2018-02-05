@@ -42,7 +42,7 @@ class Cell
     end
   end
 
-  def kill
+  def kill(c)
     c.next_creature = Noop
     c.next_energy = 0
   end

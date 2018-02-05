@@ -3,10 +3,6 @@ module A
     c.kill
   end
 
-  def self.stay(c)
-    c.rest(c)
-  end
-
   def self.rest(c)
     c.add_energy(0.1, U::MAX_ENERGY)
     c.stay
