@@ -1,6 +1,0 @@
-- Prevent movement to occupied cell
-- Auto-kill a cell that raises an exception
-- Sense + signal
-- Move
-- Copy
-- Vamp, Brace, Give, None
