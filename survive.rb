@@ -15,13 +15,9 @@ size = w * h
 cells = U.init_field(size)
 
 loop do
-  sleep(0.1)
-  puts "#{M.up(h)}\r"
-  cells.each_slice(w) do |row|
-    row.each do |cell|
-      U.show(cell)
-    end
-  end
+  # sense + signal, indicate action (tick)
+  # apply signals
+  # apply action
 
   cells.each_with_index do |c, i|
     unless c.creature == Noop
@@ -37,4 +33,14 @@ loop do
   end
 
   cells.each{|c| c.resolve}
+
+  # print current state
+  # sleep
+  puts "#{M.up(h)}\r"
+  cells.each_slice(w) do |row|
+    row.each do |cell|
+      U.show(cell)
+    end
+  end
+  sleep(0.1)
 end

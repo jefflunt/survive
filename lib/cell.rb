@@ -2,6 +2,7 @@ class Cell
   attr_accessor :creature
   attr_accessor :energy
   attr_accessor :signals
+  attr_accessor :next_action
   attr_accessor :next_creature
   attr_accessor :next_energy
 
