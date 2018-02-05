@@ -40,30 +40,30 @@ AI that takes the form of a unicellular life form. On every turn your AI:
 Signaling works in pairs of an outgoing signal, and an incoming signal. Every
 pair has a cost and associated gain.
 
-| out   | cost | in     | gain |
-| ------|------|--------|------|
-| nosig | +0.1 | (none) | +0.1 |
-| nosig | +0.1 | nosig  | +0.1 |
-| nosig | +0.1 | brace  | +0.1 |
-| nosig | +0.1 | give   | +0.2 |
-| nosig | +0.1 | vamp   | -0.4 |
-| ------|------|--------|------|
-| vamp  | -0.2 | (none) |  0.0 |
-| vamp  | -0.2 | nosig  | +0.4 |
-| vamp  | -0.2 | brace  | +0.0 |
-| vamp  | -0.2 | give   | +0.6 |
-| vamp  | -0.2 | vamp   |  0.0 |
-| ------|------|--------|------|
-| brace | -0.1 | (none) |  0.0 |
-| brace | -0.1 | nosig  |  0.0 |
-| brace | -0.1 | brace  |  0.0 |
-| brace | -0.1 | give   |  0.0 |
-| brace | -0.1 | vamp   |  0.0 |
-| ------|------|--------|------|
-| give  | -0.2 | (none) |  0.0 |
-| give  | -0.2 | nosig  |  0.0 |
-| give  | -0.2 | brace  |  0.0 |
-| give  | -0.2 | give   |  0.0 |
-| give  | -0.2 | vamp   |  0.0 |
+| out     | cost | in       | gain |
+| ------- | ---- | -------- | ---- |
+| `nosig` | +0.1 | `(none)` | +0.1 |
+| `nosig` | +0.1 | `nosig`  | +0.1 |
+| `nosig` | +0.1 | `brace`  | +0.1 |
+| `nosig` | +0.1 | `give`   | +0.2 |
+| `nosig` | +0.1 | `vamp`   | -0.4 |
+| ------- | ---- | -------- | ---- |
+| `vamp`  | -0.2 | `(none)` |  0.0 |
+| `vamp`  | -0.2 | `nosig`  | +0.4 |
+| `vamp`  | -0.2 | `brace`  | +0.0 |
+| `vamp`  | -0.2 | `give`   | +0.6 |
+| `vamp`  | -0.2 | `vamp`   |  0.0 |
+| ------- | ---- | -------- | ---- |
+| `brace` | -0.1 | `(none)` |  0.0 |
+| `brace` | -0.1 | `nosig`  |  0.0 |
+| `brace` | -0.1 | `brace`  |  0.0 |
+| `brace` | -0.1 | `give`   |  0.0 |
+| `brace` | -0.1 | `vamp`   |  0.0 |
+| ------- | ---- | -------- | ---- |
+| `give`  | -0.2 | `(none)` |  0.0 |
+| `give`  | -0.2 | `nosig`  |  0.0 |
+| `give`  | -0.2 | `brace`  |  0.0 |
+| `give`  | -0.2 | `give`   |  0.0 |
+| `give`  | -0.2 | `vamp`   |  0.0 |
 
   [1]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
