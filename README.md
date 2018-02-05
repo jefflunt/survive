@@ -32,7 +32,7 @@ AI that takes the form of a unicellular life form. On every turn your AI:
 | `south`   | Move south                                                      |
 | `west`    | Move west                                                       |
 | `suicide` | The cell dies by its own choice                                 |
-| `kill`    | The is killed by the simulation, because improper output        |
+| `kill`    | The cell is killed by the simulation, because improper output   |
 
 
 ### Signaling costs and gains
