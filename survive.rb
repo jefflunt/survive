@@ -1,12 +1,10 @@
 $LOAD_PATH.unshift './lib'
 $LOAD_PATH.unshift './lib/cell_lines'
 
+Dir.glob('lib/cell_lines/*.rb') { |f| require_relative f }
 require 'colorize'
 require 'io/console'
-require 'blind_copy'
-require 'mover'
 require 'cell'
-require 'noop'
 require 'm'
 require 'u'
 require 'a'
